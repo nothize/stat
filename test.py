@@ -23,7 +23,7 @@ if len(sys.argv) > 1:
 		if p[0] == 'Y':
 			automatch.append(i)
 			p = p[1:]
-			continue
+#			continue
 
 		line = p.split("-")
 		vol = int(line[0].replace(",", ""))
@@ -32,14 +32,17 @@ if len(sys.argv) > 1:
 		ps.append(price)
 		i = i + 1
 
-#			print i, p, sum(vs)
+		print i, price, vol/1000
 
 #	print sum(vs)
 
-	spread = 40
+	spread = 20
 	for i in xrange(len(vs)-spread):
-		for j in xrange(i,i+spread):
-			if sum(vs[i:j]) in [13230000, 15040000]:
-				print i, j, (j-i), sum(vs[i:j]), sum(ps[i:j]) / (j-i)
+		for j in xrange(i+1,i+spread):
+			if i >= 229 and j <= 349:
+				if abs(sum(vs[i:j]) - 15040000) < 100000 and abs(sum(ps[i:j])/(j-i) - 0.023) < 0.001:
+#					print i, j, (j-i), sum(vs[i:j]), sum(ps[i:j]) / (j-i)
+					""
 			
 		
+	print len(vs)
