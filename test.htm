@@ -1,0 +1,17 @@
+<script src="63001.txt"></script>
+<script>
+
+s = t.substring(t.indexOf("[")+1, t.indexOf("]")).trim()
+
+ds = s.split(" ")
+
+txs = []
+
+for ( var i = 0; i < ds.length; i++ ) {
+	var vs = ds[i].split("-")
+	v = vs[0]
+	p = vs[1]
+	txs[txs.length] = { volume : v, price : p }
+}
+
+</script>
